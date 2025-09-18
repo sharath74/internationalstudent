@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Arrival Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+<div class="container py-5">
+
+    <div class="d-flex justify-content-end mb-3">
+        <a href="{{ url_for('logout') }}" class="btn btn-outline-danger btn-sm">Logout</a>
+    </div>
+
+    <h2 class="mb-4">📌 Post-Arrival Checklist</h2>
+    <ul>
+        <li>Download Form I-94 from <a href="https://i94.cbp.dhs.gov/" target="_blank">CBP Official Site</a></li>
+        <li>Submit address to university (if required)</li>
+        <li>Meet your academic advisor and finalize course registration</li>
+        <li>Attend orientation sessions</li>
+        <li>Apply for SSN (if employed)</li>
+    </ul>
+
+    <form method="POST">
+        <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" id="stepDoneCheck" onchange="toggleButton()">
+            <label class="form-check-label" for="stepDoneCheck">
+                I have completed all post-arrival steps.
+            </label>
+        </div>
+        <button id="submitBtn" type="submit" class="btn btn-success" disabled>Finish Guide →</button>
+    </form>
+
+</div>
+
+<script>
+    function toggleButton() {
+        const checkbox = document.getElementById('stepDoneCheck');
+        const submitBtn = document.getElementById('submitBtn');
+        submitBtn.disabled = !checkbox.checked;
+    }
+</script>
+</body>
+</html>
